@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Android</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A80B9C09-66D1-409A-9608-6D697DCEA203}</ProjectGuid>
+    <TargetProjectXMLFile>project.xml</TargetProjectXMLFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Android' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|BlackBerry' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Flash' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|HTML5' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iOS' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+    <AdditionalArguments>-simulator</AdditionalArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Linux' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Mac' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|webOS' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Android' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|BlackBerry' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Flash' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|HTML5' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iOS' ">
+    <OutputPath>.</OutputPath>
+    <AdditionalArguments>-simulator</AdditionalArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Linux' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Mac' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|webOS' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="project.xml" />
+    <Compile Include="src\Main.hx" />
+    <Compile Include="src\MainScene.hx" />
+    <Compile Include="LD-mono.oflproj" />
+    <Compile Include="assets\audio\README" />
+    <Compile Include="assets\font\04B_03__.ttf" />
+    <Compile Include="assets\HaxePunk.svg" />
+    <Compile Include="src\Player.hx" />
+    <Compile Include="assets\graphics\game-gfx.png" />
+    <Compile Include="assets\graphics\ball-gfx.png" />
+    <Compile Include="src\Ball.hx" />
+    <Compile Include="src\Shadow.hx" />
+    <Compile Include="src\Target.hx" />
+    <Compile Include="assets\graphics\target.png" />
+    <Compile Include="assets\graphics\GameOver.png" />
+    <Compile Include="src\GameOverText.hx" />
+    <Compile Include="src\Dog.hx" />
+    <Compile Include="src\Bar.hx" />
+    <Compile Include="src\Spawner.hx" />
+    <Compile Include="src\Pauser.hx" />
+    <Compile Include="assets\graphics\Arrow.png" />
+    <Compile Include="assets\graphics\Background.png" />
+    <Compile Include="assets\graphics\Bar.png" />
+    <Compile Include="assets\graphics\Dog-sheet.png" />
+    <Compile Include="assets\graphics\Dog-sheet.psd" />
+    <Compile Include="assets\graphics\FlashTip.png" />
+    <Compile Include="assets\graphics\game-gfx-2.png" />
+    <Compile Include="assets\graphics\GameOverDOG.png" />
+    <Compile Include="assets\graphics\GameOverP1.png" />
+    <Compile Include="assets\graphics\GameOverP2.png" />
+    <Compile Include="assets\graphics\GameOverSINGLE.png" />
+    <Compile Include="assets\graphics\ModeMultiplayer.png" />
+    <Compile Include="assets\graphics\P1_Joy_Ctrl.png" />
+    <Compile Include="assets\graphics\P1_Key_Ctrl.png" />
+    <Compile Include="assets\graphics\P2_Joy_Ctrl.png" />
+    <Compile Include="assets\graphics\P2_Key_Ctrl.png" />
+    <Compile Include="assets\graphics\ModeSingleplayerP1.png" />
+    <Compile Include="assets\graphics\ModeSingleplayerP2.png" />
+    <Compile Include="assets\graphics\Splash.png" />
+    <Compile Include="assets\graphics\Paused.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|Mac" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="LD-mono/src/Ball.hx">
+    <Files>
+      <File FileName="LD-mono/src/Main.hx" Line="35" Column="17" />
+      <File FileName="LD-mono/src/MainScene.hx" Line="19" Column="22" />
+      <File FileName="LD-mono/src/Player.hx" Line="117" Column="19" />
+      <File FileName="LD-mono/src/Ball.hx" Line="90" Column="4" />
+      <File FileName="LD-mono/src/Dog.hx" Line="46" Column="3" />
+      <File FileName="LD-mono/src/Bar.hx" Line="26" Column="2" />
+      <File FileName="LD-mono/src/Spawner.hx" Line="27" Column="38" />
+      <File FileName="LD-mono/src/GameOverText.hx" Line="55" Column="40" />
+      <File FileName="LD-mono/src/Pauser.hx" Line="39" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
