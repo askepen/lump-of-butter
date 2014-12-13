@@ -66,6 +66,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("font/04B_03__.ttf", AssetType.FONT);
 		className.set ("font/04B_03__.ttf.png", __ASSET__font_04b_03___ttf_png);
 		type.set ("font/04B_03__.ttf.png", AssetType.IMAGE);
+		className.set ("graphics/Arrow.png", __ASSET__graphics_arrow_png);
+		type.set ("graphics/Arrow.png", AssetType.IMAGE);
 		className.set ("graphics/Background.png", __ASSET__graphics_background_png);
 		type.set ("graphics/Background.png", AssetType.IMAGE);
 		className.set ("graphics/ball-gfx.png", __ASSET__graphics_ball_gfx_png);
@@ -74,6 +76,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/Bar.png", AssetType.IMAGE);
 		className.set ("graphics/Dog-sheet.png", __ASSET__graphics_dog_sheet_png);
 		type.set ("graphics/Dog-sheet.png", AssetType.IMAGE);
+		className.set ("graphics/dust.png", __ASSET__graphics_dust_png);
+		type.set ("graphics/dust.png", AssetType.IMAGE);
+		className.set ("graphics/FlashTip.png", __ASSET__graphics_flashtip_png);
+		type.set ("graphics/FlashTip.png", AssetType.IMAGE);
 		className.set ("graphics/game-gfx-2.png", __ASSET__graphics_game_gfx_2_png);
 		type.set ("graphics/game-gfx-2.png", AssetType.IMAGE);
 		className.set ("graphics/game-gfx.png", __ASSET__graphics_game_gfx_png);
@@ -88,6 +94,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/GameOverP2.png", AssetType.IMAGE);
 		className.set ("graphics/GameOverSINGLE.png", __ASSET__graphics_gameoversingle_png);
 		type.set ("graphics/GameOverSINGLE.png", AssetType.IMAGE);
+		className.set ("graphics/ModeMultiplayer.png", __ASSET__graphics_modemultiplayer_png);
+		type.set ("graphics/ModeMultiplayer.png", AssetType.IMAGE);
+		className.set ("graphics/ModeSingleplayerP1.png", __ASSET__graphics_modesingleplayerp1_png);
+		type.set ("graphics/ModeSingleplayerP1.png", AssetType.IMAGE);
+		className.set ("graphics/ModeSingleplayerP2.png", __ASSET__graphics_modesingleplayerp2_png);
+		type.set ("graphics/ModeSingleplayerP2.png", AssetType.IMAGE);
 		className.set ("graphics/P1_Joy_Ctrl.png", __ASSET__graphics_p1_joy_ctrl_png);
 		type.set ("graphics/P1_Joy_Ctrl.png", AssetType.IMAGE);
 		className.set ("graphics/P1_Key_Ctrl.png", __ASSET__graphics_p1_key_ctrl_png);
@@ -96,6 +108,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/P2_Joy_Ctrl.png", AssetType.IMAGE);
 		className.set ("graphics/P2_Key_Ctrl.png", __ASSET__graphics_p2_key_ctrl_png);
 		type.set ("graphics/P2_Key_Ctrl.png", AssetType.IMAGE);
+		className.set ("graphics/Paused.png", __ASSET__graphics_paused_png);
+		type.set ("graphics/Paused.png", AssetType.IMAGE);
 		className.set ("graphics/shadow.png", __ASSET__graphics_shadow_png);
 		type.set ("graphics/shadow.png", AssetType.IMAGE);
 		className.set ("graphics/Splash.png", __ASSET__graphics_splash_png);
@@ -165,6 +179,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "graphics/Arrow.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "graphics/Background.png";
 		path.set (id, id);
 		
@@ -178,6 +196,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "graphics/Dog-sheet.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/dust.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/FlashTip.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -209,6 +235,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "graphics/ModeMultiplayer.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/ModeSingleplayerP1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/ModeSingleplayerP2.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "graphics/P1_Joy_Ctrl.png";
 		path.set (id, id);
 		
@@ -222,6 +260,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "graphics/P2_Key_Ctrl.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/Paused.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -306,6 +348,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__font_5);
 		
 		#end
@@ -347,6 +396,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("font/04B_03__.ttf.png", __ASSET__font_04b_03___ttf_png);
 		type.set ("font/04B_03__.ttf.png", AssetType.IMAGE);
 		
+		className.set ("graphics/Arrow.png", __ASSET__graphics_arrow_png);
+		type.set ("graphics/Arrow.png", AssetType.IMAGE);
+		
 		className.set ("graphics/Background.png", __ASSET__graphics_background_png);
 		type.set ("graphics/Background.png", AssetType.IMAGE);
 		
@@ -358,6 +410,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("graphics/Dog-sheet.png", __ASSET__graphics_dog_sheet_png);
 		type.set ("graphics/Dog-sheet.png", AssetType.IMAGE);
+		
+		className.set ("graphics/dust.png", __ASSET__graphics_dust_png);
+		type.set ("graphics/dust.png", AssetType.IMAGE);
+		
+		className.set ("graphics/FlashTip.png", __ASSET__graphics_flashtip_png);
+		type.set ("graphics/FlashTip.png", AssetType.IMAGE);
 		
 		className.set ("graphics/game-gfx-2.png", __ASSET__graphics_game_gfx_2_png);
 		type.set ("graphics/game-gfx-2.png", AssetType.IMAGE);
@@ -380,6 +438,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("graphics/GameOverSINGLE.png", __ASSET__graphics_gameoversingle_png);
 		type.set ("graphics/GameOverSINGLE.png", AssetType.IMAGE);
 		
+		className.set ("graphics/ModeMultiplayer.png", __ASSET__graphics_modemultiplayer_png);
+		type.set ("graphics/ModeMultiplayer.png", AssetType.IMAGE);
+		
+		className.set ("graphics/ModeSingleplayerP1.png", __ASSET__graphics_modesingleplayerp1_png);
+		type.set ("graphics/ModeSingleplayerP1.png", AssetType.IMAGE);
+		
+		className.set ("graphics/ModeSingleplayerP2.png", __ASSET__graphics_modesingleplayerp2_png);
+		type.set ("graphics/ModeSingleplayerP2.png", AssetType.IMAGE);
+		
 		className.set ("graphics/P1_Joy_Ctrl.png", __ASSET__graphics_p1_joy_ctrl_png);
 		type.set ("graphics/P1_Joy_Ctrl.png", AssetType.IMAGE);
 		
@@ -391,6 +458,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("graphics/P2_Key_Ctrl.png", __ASSET__graphics_p2_key_ctrl_png);
 		type.set ("graphics/P2_Key_Ctrl.png", AssetType.IMAGE);
+		
+		className.set ("graphics/Paused.png", __ASSET__graphics_paused_png);
+		type.set ("graphics/Paused.png", AssetType.IMAGE);
 		
 		className.set ("graphics/shadow.png", __ASSET__graphics_shadow_png);
 		type.set ("graphics/shadow.png", AssetType.IMAGE);
@@ -1004,10 +1074,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__graphics_preloader_haxepunk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__font_04b_03___ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__font_04b_03___ttf_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_arrow_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_background_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_ball_gfx_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_bar_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_dog_sheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_dust_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_flashtip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_game_gfx_2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_game_gfx_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_gameover_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1015,10 +1088,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__graphics_gameoverp1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_gameoverp2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_gameoversingle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_modemultiplayer_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_modesingleplayerp1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_modesingleplayerp2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_p1_joy_ctrl_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_p1_key_ctrl_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_p2_joy_ctrl_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_p2_key_ctrl_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_paused_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_shadow_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_splash_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_target_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1044,6 +1121,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__font_04b_03___ttf extends openfl.text.Font { public function new () { super (); fontName = "font/04B_03__.ttf"; } } 
+
+
+
+
+
+
+
 
 
 
@@ -1095,10 +1179,13 @@ class __ASSET__font_5 extends openfl.text.Font { public function new () { super 
 //@:bitmap("/usr/lib/haxe/lib/HaxePunk/2,5,3/assets/graphics/preloader/haxepunk.png") class __ASSET__graphics_preloader_haxepunk_png extends openfl.display.BitmapData {}
 //@:font("/usr/lib/haxe/lib/HaxePunk/2,5,3/assets/font/04B_03__.ttf") class __ASSET__font_04b_03___ttf extends openfl.text.Font {}
 //@:bitmap("/usr/lib/haxe/lib/HaxePunk/2,5,3/assets/font/04B_03__.ttf.png") class __ASSET__font_04b_03___ttf_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/graphics/Arrow.png") class __ASSET__graphics_arrow_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/Background.png") class __ASSET__graphics_background_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/ball-gfx.png") class __ASSET__graphics_ball_gfx_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/Bar.png") class __ASSET__graphics_bar_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/Dog-sheet.png") class __ASSET__graphics_dog_sheet_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/graphics/dust.png") class __ASSET__graphics_dust_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/graphics/FlashTip.png") class __ASSET__graphics_flashtip_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/game-gfx-2.png") class __ASSET__graphics_game_gfx_2_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/game-gfx.png") class __ASSET__graphics_game_gfx_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/GameOver.png") class __ASSET__graphics_gameover_png extends openfl.display.BitmapData {}
@@ -1106,10 +1193,14 @@ class __ASSET__font_5 extends openfl.text.Font { public function new () { super 
 //@:bitmap("assets/graphics/GameOverP1.png") class __ASSET__graphics_gameoverp1_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/GameOverP2.png") class __ASSET__graphics_gameoverp2_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/GameOverSINGLE.png") class __ASSET__graphics_gameoversingle_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/graphics/ModeMultiplayer.png") class __ASSET__graphics_modemultiplayer_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/graphics/ModeSingleplayerP1.png") class __ASSET__graphics_modesingleplayerp1_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/graphics/ModeSingleplayerP2.png") class __ASSET__graphics_modesingleplayerp2_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/P1_Joy_Ctrl.png") class __ASSET__graphics_p1_joy_ctrl_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/P1_Key_Ctrl.png") class __ASSET__graphics_p1_key_ctrl_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/P2_Joy_Ctrl.png") class __ASSET__graphics_p2_joy_ctrl_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/P2_Key_Ctrl.png") class __ASSET__graphics_p2_key_ctrl_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/graphics/Paused.png") class __ASSET__graphics_paused_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/shadow.png") class __ASSET__graphics_shadow_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/Splash.png") class __ASSET__graphics_splash_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/graphics/target.png") class __ASSET__graphics_target_png extends openfl.display.BitmapData {}

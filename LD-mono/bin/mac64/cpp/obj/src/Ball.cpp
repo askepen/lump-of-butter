@@ -3,6 +3,9 @@
 #ifndef INCLUDED_Ball
 #include <Ball.h>
 #endif
+#ifndef INCLUDED_Dust
+#include <Dust.h>
+#endif
 #ifndef INCLUDED_GameOverText
 #include <GameOverText.h>
 #endif
@@ -373,6 +376,10 @@ Void Ball_obj::getThrown( Float x,Float y){
 		this->drawTrail = true;
 		HX_STACK_LINE(106)
 		this->screenshakeInit((int)2,(int)15,(int)7);
+		HX_STACK_LINE(107)
+		::Dust _g = ::Dust_obj::__new(x,y);		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(107)
+		this->_scene->add(_g);
 	}
 return null();
 }
@@ -382,68 +389,68 @@ HX_DEFINE_DYNAMIC_FUNC2(Ball_obj,getThrown,(void))
 
 Void Ball_obj::updateGraphic( ){
 {
-		HX_STACK_FRAME("Ball","updateGraphic",0x7939a110,"Ball.updateGraphic","Ball.hx",110,0xf7f391ff)
+		HX_STACK_FRAME("Ball","updateGraphic",0x7939a110,"Ball.updateGraphic","Ball.hx",111,0xf7f391ff)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(111)
+		HX_STACK_LINE(112)
 		if (((this->p != null()))){
-			HX_STACK_LINE(113)
+			HX_STACK_LINE(114)
 			if ((this->p->ballAttached)){
-				HX_STACK_LINE(115)
-				this->shadow->visible = false;
 				HX_STACK_LINE(116)
+				this->shadow->visible = false;
+				HX_STACK_LINE(117)
 				this->state = HX_CSTRING("fly");
 				struct _Function_3_1{
 					inline static Float Block( hx::ObjectPtr< ::Ball_obj > __this){
-						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",117,0xf7f391ff)
+						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",118,0xf7f391ff)
 						{
-							HX_STACK_LINE(117)
+							HX_STACK_LINE(118)
 							::Player _this = __this->p;		HX_STACK_VAR(_this,"_this");
-							HX_STACK_LINE(117)
+							HX_STACK_LINE(118)
 							return (  ((_this->followCamera)) ? Float((_this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(_this->y) );
 						}
 						return null();
 					}
 				};
-				HX_STACK_LINE(117)
+				HX_STACK_LINE(118)
 				int _g = -(::Math_obj::round((_Function_3_1::Block(this) - (int)1)));		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(117)
+				HX_STACK_LINE(118)
 				this->set_layer(_g);
 			}
 			else{
-				HX_STACK_LINE(121)
-				this->shadow->visible = true;
 				HX_STACK_LINE(122)
+				this->shadow->visible = true;
+				HX_STACK_LINE(123)
 				this->state = HX_CSTRING("still");
-				HX_STACK_LINE(123)
+				HX_STACK_LINE(124)
 				int _g1 = -(::Math_obj::round((  ((this->followCamera)) ? Float((this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(this->y) )));		HX_STACK_VAR(_g1,"_g1");
-				HX_STACK_LINE(123)
+				HX_STACK_LINE(124)
 				this->set_layer(_g1);
 			}
 		}
-		HX_STACK_LINE(129)
+		HX_STACK_LINE(130)
 		{
-			HX_STACK_LINE(129)
+			HX_STACK_LINE(130)
 			::String _g = this->state;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(129)
+			HX_STACK_LINE(130)
 			::String _switch_1 = (_g);
 			if (  ( _switch_1==HX_CSTRING("still"))){
-				HX_STACK_LINE(132)
+				HX_STACK_LINE(133)
 				this->sprite->play(HX_CSTRING("still"),null(),null());
 			}
 			else if (  ( _switch_1==HX_CSTRING("fly"))){
-				HX_STACK_LINE(135)
+				HX_STACK_LINE(136)
 				this->sprite->play(HX_CSTRING("fly"),null(),null());
 			}
 		}
-		HX_STACK_LINE(139)
+		HX_STACK_LINE(140)
 		if ((this->drawTrail)){
-			HX_STACK_LINE(141)
-			this->updateTrail();
 			HX_STACK_LINE(142)
+			this->updateTrail();
+			HX_STACK_LINE(143)
 			this->drawTrail = false;
 		}
 		else{
-			HX_STACK_LINE(144)
+			HX_STACK_LINE(145)
 			this->set_graphic(this->sprite);
 		}
 	}
@@ -455,102 +462,102 @@ HX_DEFINE_DYNAMIC_FUNC0(Ball_obj,updateGraphic,(void))
 
 int Ball_obj::getWinner( hx::Null< bool >  __o_butterThrownAway){
 bool butterThrownAway = __o_butterThrownAway.Default(false);
-	HX_STACK_FRAME("Ball","getWinner",0x1582bfe6,"Ball.getWinner","Ball.hx",148,0xf7f391ff)
+	HX_STACK_FRAME("Ball","getWinner",0x1582bfe6,"Ball.getWinner","Ball.hx",149,0xf7f391ff)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(butterThrownAway,"butterThrownAway")
 {
-		HX_STACK_LINE(149)
-		int highestScore = (int)0;		HX_STACK_VAR(highestScore,"highestScore");
 		HX_STACK_LINE(150)
-		::Player bestPlayer = null();		HX_STACK_VAR(bestPlayer,"bestPlayer");
+		int highestScore = (int)0;		HX_STACK_VAR(highestScore,"highestScore");
 		HX_STACK_LINE(151)
-		bool noWinner = true;		HX_STACK_VAR(noWinner,"noWinner");
+		::Player bestPlayer = null();		HX_STACK_VAR(bestPlayer,"bestPlayer");
 		HX_STACK_LINE(152)
-		Array< ::Dynamic > wPlayer = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(wPlayer,"wPlayer");
+		bool noWinner = true;		HX_STACK_VAR(noWinner,"noWinner");
 		HX_STACK_LINE(153)
-		int team1 = (int)0;		HX_STACK_VAR(team1,"team1");
+		Array< ::Dynamic > wPlayer = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(wPlayer,"wPlayer");
 		HX_STACK_LINE(154)
+		int team1 = (int)0;		HX_STACK_VAR(team1,"team1");
+		HX_STACK_LINE(155)
 		int team2 = (int)0;		HX_STACK_VAR(team2,"team2");
-		HX_STACK_LINE(156)
+		HX_STACK_LINE(157)
 		this->_scene->getClass(hx::ClassOf< ::Player >(),wPlayer);
-		HX_STACK_LINE(158)
+		HX_STACK_LINE(159)
 		{
-			HX_STACK_LINE(158)
+			HX_STACK_LINE(159)
 			int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
-			HX_STACK_LINE(158)
+			HX_STACK_LINE(159)
 			int _g = wPlayer->length;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(158)
+			HX_STACK_LINE(159)
 			while((true)){
-				HX_STACK_LINE(158)
+				HX_STACK_LINE(159)
 				if ((!(((_g1 < _g))))){
-					HX_STACK_LINE(158)
+					HX_STACK_LINE(159)
 					break;
 				}
-				HX_STACK_LINE(158)
+				HX_STACK_LINE(159)
 				int i = (_g1)++;		HX_STACK_VAR(i,"i");
-				HX_STACK_LINE(160)
-				::Player p = wPlayer->__get(i).StaticCast< ::Player >();		HX_STACK_VAR(p,"p");
 				HX_STACK_LINE(161)
+				::Player p = wPlayer->__get(i).StaticCast< ::Player >();		HX_STACK_VAR(p,"p");
+				HX_STACK_LINE(162)
 				if (((bool((p == this->lastOwner)) && bool(butterThrownAway)))){
-					HX_STACK_LINE(161)
+					HX_STACK_LINE(162)
 					continue;
 				}
 				else{
-					HX_STACK_LINE(162)
+					HX_STACK_LINE(163)
 					if (((p->team == (int)1))){
-						HX_STACK_LINE(162)
+						HX_STACK_LINE(163)
 						hx::AddEq(team1,p->score);
 					}
 					else{
-						HX_STACK_LINE(163)
+						HX_STACK_LINE(164)
 						if (((p->team == (int)2))){
-							HX_STACK_LINE(163)
+							HX_STACK_LINE(164)
 							hx::AddEq(team2,p->score);
 						}
 					}
 				}
 			}
 		}
-		HX_STACK_LINE(166)
+		HX_STACK_LINE(167)
 		if (((bool((this->p->team == this->lastOwner->team)) && bool(butterThrownAway)))){
-			HX_STACK_LINE(168)
+			HX_STACK_LINE(169)
 			::com::haxepunk::Entity _g = this->_scene->getInstance(HX_CSTRING("dog"));		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(168)
+			HX_STACK_LINE(169)
 			if (((_g == null()))){
-				HX_STACK_LINE(168)
+				HX_STACK_LINE(169)
 				if (((this->p->team == (int)1))){
-					HX_STACK_LINE(168)
+					HX_STACK_LINE(169)
 					return (int)2;
 				}
 				else{
-					HX_STACK_LINE(168)
+					HX_STACK_LINE(169)
 					return (int)1;
 				}
 			}
 			else{
-				HX_STACK_LINE(169)
+				HX_STACK_LINE(170)
 				return (int)0;
 			}
 		}
 		else{
-			HX_STACK_LINE(173)
+			HX_STACK_LINE(174)
 			if (((team1 != team2))){
-				HX_STACK_LINE(173)
+				HX_STACK_LINE(174)
 				if (((team1 > team2))){
-					HX_STACK_LINE(173)
+					HX_STACK_LINE(174)
 					return (int)1;
 				}
 				else{
-					HX_STACK_LINE(173)
+					HX_STACK_LINE(174)
 					return (int)2;
 				}
 			}
 			else{
-				HX_STACK_LINE(174)
+				HX_STACK_LINE(175)
 				return (int)0;
 			}
 		}
-		HX_STACK_LINE(166)
+		HX_STACK_LINE(167)
 		return (int)0;
 	}
 }
@@ -560,26 +567,26 @@ HX_DEFINE_DYNAMIC_FUNC1(Ball_obj,getWinner,return )
 
 Void Ball_obj::updateTrail( ){
 {
-		HX_STACK_FRAME("Ball","updateTrail",0x2833f02e,"Ball.updateTrail","Ball.hx",179,0xf7f391ff)
+		HX_STACK_FRAME("Ball","updateTrail",0x2833f02e,"Ball.updateTrail","Ball.hx",180,0xf7f391ff)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(180)
+		HX_STACK_LINE(181)
 		if (((this->lastOwner == null()))){
-			HX_STACK_LINE(180)
+			HX_STACK_LINE(181)
 			return null();
 		}
-		HX_STACK_LINE(182)
+		HX_STACK_LINE(183)
 		int l = (int)16;		HX_STACK_VAR(l,"l");
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		Float _g1;		HX_STACK_VAR(_g1,"_g1");
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		{
 			struct _Function_2_1{
 				inline static Float Block( hx::ObjectPtr< ::Ball_obj > __this){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",184,0xf7f391ff)
+					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",185,0xf7f391ff)
 					{
-						HX_STACK_LINE(184)
+						HX_STACK_LINE(185)
 						::Player _this = __this->lastOwner;		HX_STACK_VAR(_this,"_this");
-						HX_STACK_LINE(184)
+						HX_STACK_LINE(185)
 						return (  ((_this->followCamera)) ? Float((_this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(_this->y) );
 					}
 					return null();
@@ -587,103 +594,103 @@ Void Ball_obj::updateTrail( ){
 			};
 			struct _Function_2_2{
 				inline static Float Block( hx::ObjectPtr< ::Ball_obj > __this){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",184,0xf7f391ff)
+					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",185,0xf7f391ff)
 					{
-						HX_STACK_LINE(184)
+						HX_STACK_LINE(185)
 						::Player _this = __this->lastOwner;		HX_STACK_VAR(_this,"_this");
-						HX_STACK_LINE(184)
+						HX_STACK_LINE(185)
 						return (  ((_this->followCamera)) ? Float((_this->x + ::com::haxepunk::HXP_obj::camera->x)) : Float(_this->x) );
 					}
 					return null();
 				}
 			};
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			Float _g = ::Math_obj::atan2((_Function_2_1::Block(this) - ((((  ((this->followCamera)) ? Float((this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(this->y) )) + (int)50))),(_Function_2_2::Block(this) - ((  ((this->followCamera)) ? Float((this->x + ::com::haxepunk::HXP_obj::camera->x)) : Float(this->x) ))));		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			Float a = (_g * ((Float((int)-180) / Float(::Math_obj::PI))));		HX_STACK_VAR(a,"a");
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			if (((a < (int)0))){
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				_g1 = (a + (int)360);
 			}
 			else{
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				_g1 = a;
 			}
 		}
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		Float _g2 = (_g1 * ((Float(::Math_obj::PI) / Float((int)-180))));		HX_STACK_VAR(_g2,"_g2");
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		Float _g3 = ::Math_obj::cos(_g2);		HX_STACK_VAR(_g3,"_g3");
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		Float _g4;		HX_STACK_VAR(_g4,"_g4");
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		{
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			Float x1;		HX_STACK_VAR(x1,"x1");
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			if ((this->followCamera)){
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				x1 = (this->x + ::com::haxepunk::HXP_obj::camera->x);
 			}
 			else{
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				x1 = this->x;
 			}
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			Float y1;		HX_STACK_VAR(y1,"y1");
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			y1 = (((  ((this->followCamera)) ? Float((this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(this->y) )) + (int)50);
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			Float x2;		HX_STACK_VAR(x2,"x2");
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			{
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				::Player _this = this->lastOwner;		HX_STACK_VAR(_this,"_this");
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				if ((_this->followCamera)){
-					HX_STACK_LINE(184)
+					HX_STACK_LINE(185)
 					x2 = (_this->x + ::com::haxepunk::HXP_obj::camera->x);
 				}
 				else{
-					HX_STACK_LINE(184)
+					HX_STACK_LINE(185)
 					x2 = _this->x;
 				}
 			}
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			Float y2;		HX_STACK_VAR(y2,"y2");
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			{
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				::Player _this = this->lastOwner;		HX_STACK_VAR(_this,"_this");
-				HX_STACK_LINE(184)
+				HX_STACK_LINE(185)
 				if ((_this->followCamera)){
-					HX_STACK_LINE(184)
+					HX_STACK_LINE(185)
 					y2 = (_this->y + ::com::haxepunk::HXP_obj::camera->y);
 				}
 				else{
-					HX_STACK_LINE(184)
+					HX_STACK_LINE(185)
 					y2 = _this->y;
 				}
 			}
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(185)
 			_g4 = ::Math_obj::sqrt(((((x2 - x1)) * ((x2 - x1))) + (((y2 - y1)) * ((y2 - y1)))));
 		}
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		Float _g5 = (Float(_g4) / Float(l));		HX_STACK_VAR(_g5,"_g5");
-		HX_STACK_LINE(184)
+		HX_STACK_LINE(185)
 		Float lengthX = (_g3 * _g5);		HX_STACK_VAR(lengthX,"lengthX");
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		Float _g7;		HX_STACK_VAR(_g7,"_g7");
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		{
 			struct _Function_2_1{
 				inline static Float Block( hx::ObjectPtr< ::Ball_obj > __this){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",185,0xf7f391ff)
+					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",186,0xf7f391ff)
 					{
-						HX_STACK_LINE(185)
+						HX_STACK_LINE(186)
 						::Player _this = __this->lastOwner;		HX_STACK_VAR(_this,"_this");
-						HX_STACK_LINE(185)
+						HX_STACK_LINE(186)
 						return (  ((_this->followCamera)) ? Float((_this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(_this->y) );
 					}
 					return null();
@@ -691,159 +698,159 @@ Void Ball_obj::updateTrail( ){
 			};
 			struct _Function_2_2{
 				inline static Float Block( hx::ObjectPtr< ::Ball_obj > __this){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",185,0xf7f391ff)
+					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",186,0xf7f391ff)
 					{
-						HX_STACK_LINE(185)
+						HX_STACK_LINE(186)
 						::Player _this = __this->lastOwner;		HX_STACK_VAR(_this,"_this");
-						HX_STACK_LINE(185)
+						HX_STACK_LINE(186)
 						return (  ((_this->followCamera)) ? Float((_this->x + ::com::haxepunk::HXP_obj::camera->x)) : Float(_this->x) );
 					}
 					return null();
 				}
 			};
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			Float _g6 = ::Math_obj::atan2((_Function_2_1::Block(this) - ((((  ((this->followCamera)) ? Float((this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(this->y) )) + (int)50))),(_Function_2_2::Block(this) - ((  ((this->followCamera)) ? Float((this->x + ::com::haxepunk::HXP_obj::camera->x)) : Float(this->x) ))));		HX_STACK_VAR(_g6,"_g6");
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			Float a = (_g6 * ((Float((int)-180) / Float(::Math_obj::PI))));		HX_STACK_VAR(a,"a");
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			if (((a < (int)0))){
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				_g7 = (a + (int)360);
 			}
 			else{
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				_g7 = a;
 			}
 		}
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		Float _g8 = (_g7 * ((Float(::Math_obj::PI) / Float((int)-180))));		HX_STACK_VAR(_g8,"_g8");
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		Float _g9 = ::Math_obj::sin(_g8);		HX_STACK_VAR(_g9,"_g9");
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		Float _g10;		HX_STACK_VAR(_g10,"_g10");
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		{
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			Float x1;		HX_STACK_VAR(x1,"x1");
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			if ((this->followCamera)){
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				x1 = (this->x + ::com::haxepunk::HXP_obj::camera->x);
 			}
 			else{
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				x1 = this->x;
 			}
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			Float y1;		HX_STACK_VAR(y1,"y1");
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			y1 = (((  ((this->followCamera)) ? Float((this->y + ::com::haxepunk::HXP_obj::camera->y)) : Float(this->y) )) + (int)50);
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			Float x2;		HX_STACK_VAR(x2,"x2");
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			{
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				::Player _this = this->lastOwner;		HX_STACK_VAR(_this,"_this");
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				if ((_this->followCamera)){
-					HX_STACK_LINE(185)
+					HX_STACK_LINE(186)
 					x2 = (_this->x + ::com::haxepunk::HXP_obj::camera->x);
 				}
 				else{
-					HX_STACK_LINE(185)
+					HX_STACK_LINE(186)
 					x2 = _this->x;
 				}
 			}
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			Float y2;		HX_STACK_VAR(y2,"y2");
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			{
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				::Player _this = this->lastOwner;		HX_STACK_VAR(_this,"_this");
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(186)
 				if ((_this->followCamera)){
-					HX_STACK_LINE(185)
+					HX_STACK_LINE(186)
 					y2 = (_this->y + ::com::haxepunk::HXP_obj::camera->y);
 				}
 				else{
-					HX_STACK_LINE(185)
+					HX_STACK_LINE(186)
 					y2 = _this->y;
 				}
 			}
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(186)
 			_g10 = ::Math_obj::sqrt(((((x2 - x1)) * ((x2 - x1))) + (((y2 - y1)) * ((y2 - y1)))));
 		}
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		Float _g11 = (Float(_g10) / Float(l));		HX_STACK_VAR(_g11,"_g11");
-		HX_STACK_LINE(185)
+		HX_STACK_LINE(186)
 		Float lengthY = (_g9 * _g11);		HX_STACK_VAR(lengthY,"lengthY");
-		HX_STACK_LINE(187)
-		Array< ::Dynamic > gfxL = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(gfxL,"gfxL");
 		HX_STACK_LINE(188)
+		Array< ::Dynamic > gfxL = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(gfxL,"gfxL");
+		HX_STACK_LINE(189)
 		{
-			HX_STACK_LINE(188)
+			HX_STACK_LINE(189)
 			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(188)
+			HX_STACK_LINE(189)
 			while((true)){
-				HX_STACK_LINE(188)
+				HX_STACK_LINE(189)
 				if ((!(((_g < l))))){
-					HX_STACK_LINE(188)
+					HX_STACK_LINE(189)
 					break;
 				}
-				HX_STACK_LINE(188)
+				HX_STACK_LINE(189)
 				int i = (_g)++;		HX_STACK_VAR(i,"i");
-				HX_STACK_LINE(190)
+				HX_STACK_LINE(191)
 				::com::haxepunk::ds::Either _g17;		HX_STACK_VAR(_g17,"_g17");
 				struct _Function_3_1{
 					inline static ::com::haxepunk::ds::Either Block( ){
-						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",190,0xf7f391ff)
+						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",191,0xf7f391ff)
 						{
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							::com::haxepunk::graphics::atlas::AtlasData _g14;		HX_STACK_VAR(_g14,"_g14");
 							struct _Function_4_1{
 								inline static ::com::haxepunk::graphics::atlas::AtlasData Block( ){
-									HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",190,0xf7f391ff)
+									HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",191,0xf7f391ff)
 									{
-										HX_STACK_LINE(190)
+										HX_STACK_LINE(191)
 										::com::haxepunk::graphics::atlas::AtlasData data;		HX_STACK_VAR(data,"data");
-										HX_STACK_LINE(190)
+										HX_STACK_LINE(191)
 										{
-											HX_STACK_LINE(190)
+											HX_STACK_LINE(191)
 											::com::haxepunk::graphics::atlas::AtlasData data1 = null();		HX_STACK_VAR(data1,"data1");
-											HX_STACK_LINE(190)
+											HX_STACK_LINE(191)
 											if ((::com::haxepunk::graphics::atlas::AtlasData_obj::_dataPool->exists(HX_CSTRING("graphics/ball-gfx.png")))){
-												HX_STACK_LINE(190)
+												HX_STACK_LINE(191)
 												::com::haxepunk::graphics::atlas::AtlasData _g12 = ::com::haxepunk::graphics::atlas::AtlasData_obj::_dataPool->get(HX_CSTRING("graphics/ball-gfx.png"));		HX_STACK_VAR(_g12,"_g12");
-												HX_STACK_LINE(190)
+												HX_STACK_LINE(191)
 												data1 = _g12;
 											}
 											else{
-												HX_STACK_LINE(190)
+												HX_STACK_LINE(191)
 												::openfl::_v2::display::BitmapData bitmap = ::com::haxepunk::HXP_obj::getBitmap(HX_CSTRING("graphics/ball-gfx.png"));		HX_STACK_VAR(bitmap,"bitmap");
-												HX_STACK_LINE(190)
+												HX_STACK_LINE(191)
 												if (((bitmap != null()))){
-													HX_STACK_LINE(190)
+													HX_STACK_LINE(191)
 													::com::haxepunk::graphics::atlas::AtlasData _g13 = ::com::haxepunk::graphics::atlas::AtlasData_obj::__new(bitmap,HX_CSTRING("graphics/ball-gfx.png"),null());		HX_STACK_VAR(_g13,"_g13");
-													HX_STACK_LINE(190)
+													HX_STACK_LINE(191)
 													data1 = _g13;
 												}
 											}
-											HX_STACK_LINE(190)
+											HX_STACK_LINE(191)
 											data = data1;
 										}
-										HX_STACK_LINE(190)
+										HX_STACK_LINE(191)
 										return data;
 									}
 									return null();
 								}
 							};
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							_g14 = _Function_4_1::Block();
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							::com::haxepunk::graphics::atlas::AtlasRegion _g15 = ::com::haxepunk::graphics::atlas::Atlas_obj::loadImageAsRegion(_g14);		HX_STACK_VAR(_g15,"_g15");
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							::com::haxepunk::ds::Either e = ::com::haxepunk::ds::Either_obj::Right(_g15);		HX_STACK_VAR(e,"e");
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							return e;
 						}
 						return null();
@@ -851,57 +858,57 @@ Void Ball_obj::updateTrail( ){
 				};
 				struct _Function_3_2{
 					inline static ::com::haxepunk::ds::Either Block( ){
-						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",190,0xf7f391ff)
+						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Ball.hx",191,0xf7f391ff)
 						{
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							::openfl::_v2::display::BitmapData _g16 = ::com::haxepunk::HXP_obj::getBitmap(HX_CSTRING("graphics/ball-gfx.png"));		HX_STACK_VAR(_g16,"_g16");
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							::com::haxepunk::ds::Either e = ::com::haxepunk::ds::Either_obj::Left(_g16);		HX_STACK_VAR(e,"e");
-							HX_STACK_LINE(190)
+							HX_STACK_LINE(191)
 							return e;
 						}
 						return null();
 					}
 				};
-				HX_STACK_LINE(190)
-				_g17 = (  (((::com::haxepunk::HXP_obj::renderMode == ::com::haxepunk::RenderMode_obj::HARDWARE))) ? ::com::haxepunk::ds::Either(_Function_3_1::Block()) : ::com::haxepunk::ds::Either(_Function_3_2::Block()) );
-				HX_STACK_LINE(190)
-				::openfl::_v2::geom::Rectangle _g18 = ::openfl::_v2::geom::Rectangle_obj::__new((int)0,(int)0,(int)50,(int)50);		HX_STACK_VAR(_g18,"_g18");
-				HX_STACK_LINE(190)
-				::com::haxepunk::graphics::Image trailImg = ::com::haxepunk::graphics::Image_obj::__new(_g17,_g18);		HX_STACK_VAR(trailImg,"trailImg");
 				HX_STACK_LINE(191)
-				trailImg->originX = (int)25;
+				_g17 = (  (((::com::haxepunk::HXP_obj::renderMode == ::com::haxepunk::RenderMode_obj::HARDWARE))) ? ::com::haxepunk::ds::Either(_Function_3_1::Block()) : ::com::haxepunk::ds::Either(_Function_3_2::Block()) );
+				HX_STACK_LINE(191)
+				::openfl::_v2::geom::Rectangle _g18 = ::openfl::_v2::geom::Rectangle_obj::__new((int)0,(int)0,(int)50,(int)50);		HX_STACK_VAR(_g18,"_g18");
+				HX_STACK_LINE(191)
+				::com::haxepunk::graphics::Image trailImg = ::com::haxepunk::graphics::Image_obj::__new(_g17,_g18);		HX_STACK_VAR(trailImg,"trailImg");
 				HX_STACK_LINE(192)
-				trailImg->originY = (int)40;
+				trailImg->originX = (int)25;
 				HX_STACK_LINE(193)
-				{
-					HX_STACK_LINE(193)
-					::com::haxepunk::graphics::Image _g12 = trailImg;		HX_STACK_VAR(_g12,"_g12");
-					HX_STACK_LINE(193)
-					_g12->x = (_g12->x + (i * lengthX));
-				}
+				trailImg->originY = (int)40;
 				HX_STACK_LINE(194)
 				{
 					HX_STACK_LINE(194)
 					::com::haxepunk::graphics::Image _g12 = trailImg;		HX_STACK_VAR(_g12,"_g12");
 					HX_STACK_LINE(194)
-					_g12->y = (_g12->y + (i * lengthY));
+					_g12->x = (_g12->x + (i * lengthX));
 				}
 				HX_STACK_LINE(195)
-				trailImg->_scale = this->sprite->_scale;
+				{
+					HX_STACK_LINE(195)
+					::com::haxepunk::graphics::Image _g12 = trailImg;		HX_STACK_VAR(_g12,"_g12");
+					HX_STACK_LINE(195)
+					_g12->y = (_g12->y + (i * lengthY));
+				}
 				HX_STACK_LINE(196)
-				trailImg->set_alpha(((Float(((l - i))) / Float(l)) * 0.5));
+				trailImg->_scale = this->sprite->_scale;
 				HX_STACK_LINE(197)
+				trailImg->set_alpha(((Float(((l - i))) / Float(l)) * 0.5));
+				HX_STACK_LINE(198)
 				gfxL[i] = trailImg;
 			}
 		}
-		HX_STACK_LINE(199)
+		HX_STACK_LINE(200)
 		gfxL->push(this->sprite);
-		HX_STACK_LINE(200)
-		::com::haxepunk::graphics::Graphiclist _g19 = ::com::haxepunk::graphics::Graphiclist_obj::__new(gfxL);		HX_STACK_VAR(_g19,"_g19");
-		HX_STACK_LINE(200)
-		this->trail = _g19;
 		HX_STACK_LINE(201)
+		::com::haxepunk::graphics::Graphiclist _g19 = ::com::haxepunk::graphics::Graphiclist_obj::__new(gfxL);		HX_STACK_VAR(_g19,"_g19");
+		HX_STACK_LINE(201)
+		this->trail = _g19;
+		HX_STACK_LINE(202)
 		this->set_graphic(this->trail);
 	}
 return null();
@@ -912,18 +919,18 @@ HX_DEFINE_DYNAMIC_FUNC0(Ball_obj,updateTrail,(void))
 
 Void Ball_obj::screenshakeInit( Float amountX,Float amountY,int time){
 {
-		HX_STACK_FRAME("Ball","screenshakeInit",0xaa70f7bb,"Ball.screenshakeInit","Ball.hx",205,0xf7f391ff)
+		HX_STACK_FRAME("Ball","screenshakeInit",0xaa70f7bb,"Ball.screenshakeInit","Ball.hx",206,0xf7f391ff)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(amountX,"amountX")
 		HX_STACK_ARG(amountY,"amountY")
 		HX_STACK_ARG(time,"time")
-		HX_STACK_LINE(206)
-		this->shakeTime = time;
 		HX_STACK_LINE(207)
-		this->shakeAmountX = amountX;
+		this->shakeTime = time;
 		HX_STACK_LINE(208)
-		this->shakeAmountY = amountY;
+		this->shakeAmountX = amountX;
 		HX_STACK_LINE(209)
+		this->shakeAmountY = amountY;
+		HX_STACK_LINE(210)
 		this->screenshakeOn = true;
 	}
 return null();
@@ -934,34 +941,34 @@ HX_DEFINE_DYNAMIC_FUNC3(Ball_obj,screenshakeInit,(void))
 
 Void Ball_obj::screenshake( ){
 {
-		HX_STACK_FRAME("Ball","screenshake",0xccf0af0b,"Ball.screenshake","Ball.hx",213,0xf7f391ff)
+		HX_STACK_FRAME("Ball","screenshake",0xccf0af0b,"Ball.screenshake","Ball.hx",214,0xf7f391ff)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(214)
-		(this->shakeTime)--;
 		HX_STACK_LINE(215)
+		(this->shakeTime)--;
+		HX_STACK_LINE(216)
 		if (((this->shakeTime <= (int)0))){
-			HX_STACK_LINE(215)
+			HX_STACK_LINE(216)
 			this->screenshakeOn = false;
 		}
-		HX_STACK_LINE(216)
+		HX_STACK_LINE(217)
 		Float _g = ::Math_obj::random();		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(216)
+		HX_STACK_LINE(217)
 		Float _g1 = (_g - 0.5);		HX_STACK_VAR(_g1,"_g1");
-		HX_STACK_LINE(216)
+		HX_STACK_LINE(217)
 		Float _g2 = ((this->shakeAmountX * (int)2) * _g1);		HX_STACK_VAR(_g2,"_g2");
-		HX_STACK_LINE(216)
+		HX_STACK_LINE(217)
 		Float _g3 = _g2;		HX_STACK_VAR(_g3,"_g3");
-		HX_STACK_LINE(216)
+		HX_STACK_LINE(217)
 		this->_scene->camera->x = _g3;
-		HX_STACK_LINE(217)
+		HX_STACK_LINE(218)
 		Float _g4 = ::Math_obj::random();		HX_STACK_VAR(_g4,"_g4");
-		HX_STACK_LINE(217)
+		HX_STACK_LINE(218)
 		Float _g5 = (_g4 - 0.5);		HX_STACK_VAR(_g5,"_g5");
-		HX_STACK_LINE(217)
+		HX_STACK_LINE(218)
 		Float _g6 = ((this->shakeAmountY * (int)2) * _g5);		HX_STACK_VAR(_g6,"_g6");
-		HX_STACK_LINE(217)
+		HX_STACK_LINE(218)
 		Float _g7 = _g6;		HX_STACK_VAR(_g7,"_g7");
-		HX_STACK_LINE(217)
+		HX_STACK_LINE(218)
 		this->_scene->camera->y = _g7;
 	}
 return null();
@@ -972,11 +979,11 @@ HX_DEFINE_DYNAMIC_FUNC0(Ball_obj,screenshake,(void))
 
 Void Ball_obj::normCam( ){
 {
-		HX_STACK_FRAME("Ball","normCam",0x57b7e9e4,"Ball.normCam","Ball.hx",221,0xf7f391ff)
+		HX_STACK_FRAME("Ball","normCam",0x57b7e9e4,"Ball.normCam","Ball.hx",222,0xf7f391ff)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(222)
-		this->_scene->camera->x = (int)0;
 		HX_STACK_LINE(223)
+		this->_scene->camera->x = (int)0;
+		HX_STACK_LINE(224)
 		this->_scene->camera->y = (int)0;
 	}
 return null();

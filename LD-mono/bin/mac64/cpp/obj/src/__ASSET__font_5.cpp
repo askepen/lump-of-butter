@@ -15,14 +15,14 @@
 
 Void __ASSET__font_5_obj::__construct()
 {
-HX_STACK_FRAME("__ASSET__font_5","new",0x881d87c7,"__ASSET__font_5.new","DefaultAssetLibrary.hx",1117,0x0fc48912)
+HX_STACK_FRAME("__ASSET__font_5","new",0x881d87c7,"__ASSET__font_5.new","DefaultAssetLibrary.hx",1126,0x0fc48912)
 HX_STACK_THIS(this)
 {
-	HX_STACK_LINE(1117)
+	HX_STACK_LINE(1126)
 	super::__construct(null(),null(),null());
-	HX_STACK_LINE(1117)
+	HX_STACK_LINE(1126)
 	this->__fontPath = HX_CSTRING("font/04B_03__.ttf");
-	HX_STACK_LINE(1117)
+	HX_STACK_LINE(1126)
 	this->fontName = HX_CSTRING("04b03");
 }
 ;

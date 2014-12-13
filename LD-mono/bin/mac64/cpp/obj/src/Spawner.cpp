@@ -1599,19 +1599,19 @@ Void Spawner_obj::gameInit( ){
 					HX_STACK_LINE(230)
 					this->_scene->add(this->b);
 					HX_STACK_LINE(232)
-					::Player _g15 = ::Player_obj::__new((int)2,false,this->b,(int)900,(int)100,this->p1Joy,this->p1JoyNum);		HX_STACK_VAR(_g15,"_g15");
+					::Player _g15 = ::Player_obj::__new((int)2,false,this->b,(int)900,(int)100,this->p2Joy,this->p1JoyNum);		HX_STACK_VAR(_g15,"_g15");
 					HX_STACK_LINE(232)
 					this->_scene->add(_g15);
 					HX_STACK_LINE(233)
-					::Player _g16 = ::Player_obj::__new((int)2,true,this->b,(int)100,(int)100,this->p1Joy,this->p1JoyNum);		HX_STACK_VAR(_g16,"_g16");
+					::Player _g16 = ::Player_obj::__new((int)2,true,this->b,(int)100,(int)100,this->p2Joy,this->p1JoyNum);		HX_STACK_VAR(_g16,"_g16");
 					HX_STACK_LINE(233)
 					this->_scene->add(_g16);
 					HX_STACK_LINE(235)
-					::Player _g17 = ::Player_obj::__new((int)1,false,this->b,(int)900,(int)700,this->p2Joy,this->p2JoyNum);		HX_STACK_VAR(_g17,"_g17");
+					::Player _g17 = ::Player_obj::__new((int)1,false,this->b,(int)900,(int)700,this->p1Joy,this->p2JoyNum);		HX_STACK_VAR(_g17,"_g17");
 					HX_STACK_LINE(235)
 					this->_scene->add(_g17);
 					HX_STACK_LINE(236)
-					::Player _g18 = ::Player_obj::__new((int)1,true,this->b,(int)100,(int)700,this->p2Joy,this->p2JoyNum);		HX_STACK_VAR(_g18,"_g18");
+					::Player _g18 = ::Player_obj::__new((int)1,true,this->b,(int)100,(int)700,this->p1Joy,this->p2JoyNum);		HX_STACK_VAR(_g18,"_g18");
 					HX_STACK_LINE(236)
 					this->_scene->add(_g18);
 					HX_STACK_LINE(238)

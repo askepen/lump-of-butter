@@ -37,6 +37,8 @@ class Pauser extends Entity
 			if (Input.joystick(i).pressed(PS3_GAMEPAD.START_BUTTON) || Input.joystick(i).pressed(XBOX_GAMEPAD.START_BUTTON)) 
 				paused ? un_pause() : pause();
 		
+		if(paused) pauseMenu();
+		
 		
 		super.update();
 	}
@@ -57,8 +59,22 @@ class Pauser extends Entity
 	{
 		paused = false;
 		
+		
 		sprite.alpha = 0;
 		
 		for (i in 0...allEnts.length) allEnts[i].active = true;
+	}
+	
+	function pauseMenu():Void
+	{
+		for (i in 0...Input.joysticks) 
+		{
+			if (Input.joystick(i).pressed(PS3_GAMEPAD.SELECT_BUTTON) || Input.joystick(i).pressed(XBOX_GAMEPAD.BACK_BUTTON)) 
+			{
+				HXP.world = new MainScene();
+			}
+		}
+		
+		if(Input.pressed(Key.R)) HXP.scene = new MainScene();
 	}
 }

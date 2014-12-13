@@ -1684,7 +1684,9 @@
   </file>
   <file name="src/Pauser.cpp">
    <depend name="include/IMap.h"/>
+   <depend name="include/MainScene.h"/>
    <depend name="include/Pauser.h"/>
+   <depend name="include/com/haxepunk/Engine.h"/>
    <depend name="include/com/haxepunk/Entity.h"/>
    <depend name="include/com/haxepunk/Graphic.h"/>
    <depend name="include/com/haxepunk/HXP.h"/>
@@ -1702,7 +1704,13 @@
    <depend name="include/com/haxepunk/utils/_Input/InputType_Impl_.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>
    <depend name="include/openfl/_v2/display/BitmapData.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObject.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObjectContainer.h"/>
    <depend name="include/openfl/_v2/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/_v2/display/InteractiveObject.h"/>
+   <depend name="include/openfl/_v2/display/Sprite.h"/>
+   <depend name="include/openfl/_v2/events/EventDispatcher.h"/>
+   <depend name="include/openfl/_v2/events/IEventDispatcher.h"/>
    <depend name="include/openfl/_v2/geom/Rectangle.h"/>
   </file>
   <file name="src/IMap.cpp">
@@ -1791,6 +1799,27 @@
    <depend name="include/Std.h"/>
    <depend name="include/StringBuf.h"/>
    <depend name="include/cpp/Lib.h"/>
+  </file>
+  <file name="src/Dust.cpp">
+   <depend name="include/Dust.h"/>
+   <depend name="include/IMap.h"/>
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/RenderMode.h"/>
+   <depend name="include/com/haxepunk/Scene.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/ds/Either.h"/>
+   <depend name="include/com/haxepunk/graphics/Animation.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/graphics/Spritemap.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/Atlas.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/AtlasData.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/TileAtlas.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/openfl/_v2/display/BitmapData.h"/>
+   <depend name="include/openfl/_v2/display/IBitmapDrawable.h"/>
   </file>
   <file name="src/Dog.cpp">
    <depend name="include/Ball.h"/>
@@ -2062,6 +2091,7 @@
   </file>
   <file name="src/Ball.cpp">
    <depend name="include/Ball.h"/>
+   <depend name="include/Dust.h"/>
    <depend name="include/GameOverText.h"/>
    <depend name="include/IMap.h"/>
    <depend name="include/Player.h"/>

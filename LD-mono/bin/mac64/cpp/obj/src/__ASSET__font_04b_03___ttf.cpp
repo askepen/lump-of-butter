@@ -15,14 +15,14 @@
 
 Void __ASSET__font_04b_03___ttf_obj::__construct(::String __o_filename,::openfl::_v2::text::FontStyle style,::openfl::_v2::text::FontType type)
 {
-HX_STACK_FRAME("__ASSET__font_04b_03___ttf","new",0x28d5615d,"__ASSET__font_04b_03___ttf.new","DefaultAssetLibrary.hx",1112,0x0fc48912)
+HX_STACK_FRAME("__ASSET__font_04b_03___ttf","new",0x28d5615d,"__ASSET__font_04b_03___ttf.new","DefaultAssetLibrary.hx",1121,0x0fc48912)
 HX_STACK_THIS(this)
 HX_STACK_ARG(__o_filename,"filename")
 HX_STACK_ARG(style,"style")
 HX_STACK_ARG(type,"type")
 ::String filename = __o_filename.Default(HX_CSTRING(""));
 {
-	HX_STACK_LINE(1112)
+	HX_STACK_LINE(1121)
 	super::__construct(filename,style,type);
 }
 ;

@@ -71,6 +71,10 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/Arrow.png");
+		types.push (AssetType.IMAGE);
+		
+		
 		urls.push ("graphics/Background.png");
 		types.push (AssetType.IMAGE);
 		
@@ -84,6 +88,14 @@ class ApplicationMain {
 		
 		
 		urls.push ("graphics/Dog-sheet.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/dust.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/FlashTip.png");
 		types.push (AssetType.IMAGE);
 		
 		
@@ -115,6 +127,18 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("graphics/ModeMultiplayer.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/ModeSingleplayerP1.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/ModeSingleplayerP2.png");
+		types.push (AssetType.IMAGE);
+		
+		
 		urls.push ("graphics/P1_Joy_Ctrl.png");
 		types.push (AssetType.IMAGE);
 		
@@ -128,6 +152,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("graphics/P2_Key_Ctrl.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/Paused.png");
 		types.push (AssetType.IMAGE);
 		
 		

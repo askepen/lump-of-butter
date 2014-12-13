@@ -114,31 +114,22 @@ Void Main_obj::update( ){
 		HX_STACK_FRAME("Main","update",0xb7afa57e,"Main.update","Main.hx",32,0x087e5c05)
 		HX_STACK_THIS(this)
 		HX_STACK_LINE(34)
-		::com::haxepunk::ds::Either _g = ::com::haxepunk::utils::_Input::InputType_Impl__obj::fromRight((int)82);		HX_STACK_VAR(_g,"_g");
+		::com::haxepunk::ds::Either _g = ::com::haxepunk::utils::_Input::InputType_Impl__obj::fromRight((int)77);		HX_STACK_VAR(_g,"_g");
 		HX_STACK_LINE(34)
 		if ((::com::haxepunk::utils::Input_obj::pressed(_g))){
 			HX_STACK_LINE(34)
-			::com::haxepunk::Scene value = ::MainScene_obj::__new();		HX_STACK_VAR(value,"value");
+			Float _g1 = this->music->get_volume();		HX_STACK_VAR(_g1,"_g1");
 			HX_STACK_LINE(34)
-			::com::haxepunk::HXP_obj::engine->set_scene(value);
-		}
-		HX_STACK_LINE(35)
-		::com::haxepunk::ds::Either _g1 = ::com::haxepunk::utils::_Input::InputType_Impl__obj::fromRight((int)77);		HX_STACK_VAR(_g1,"_g1");
-		HX_STACK_LINE(35)
-		if ((::com::haxepunk::utils::Input_obj::pressed(_g1))){
-			HX_STACK_LINE(35)
-			Float _g2 = this->music->get_volume();		HX_STACK_VAR(_g2,"_g2");
-			HX_STACK_LINE(35)
-			if (((_g2 == (int)0))){
-				HX_STACK_LINE(35)
+			if (((_g1 == (int)0))){
+				HX_STACK_LINE(34)
 				this->music->set_volume(0.6);
 			}
 			else{
-				HX_STACK_LINE(35)
+				HX_STACK_LINE(34)
 				this->music->set_volume((int)0);
 			}
 		}
-		HX_STACK_LINE(50)
+		HX_STACK_LINE(49)
 		this->super::update();
 	}
 return null();

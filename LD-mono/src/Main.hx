@@ -31,7 +31,6 @@ class Main extends Engine
 	public override function update():Void
 	{
 		
-		if(Input.pressed(Key.R)) HXP.scene = new MainScene();
 		if(Input.pressed(Key.M)) music.volume == 0 ? music.volume = 0.6 : music.volume = 0;
 		
 /*		if(Input.pressed(Key.F)) 

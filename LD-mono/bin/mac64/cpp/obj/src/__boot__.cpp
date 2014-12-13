@@ -204,6 +204,7 @@
 #include <Lambda.h>
 #include <GameOverText.h>
 #include <EReg.h>
+#include <Dust.h>
 #include <Dog.h>
 #include <__ASSET__font_5.h>
 #include <__ASSET__font_04b_03___ttf_png.h>
@@ -469,6 +470,7 @@ hx::RegisterResources( hx::GetResources() );
 ::Lambda_obj::__register();
 ::GameOverText_obj::__register();
 ::EReg_obj::__register();
+::Dust_obj::__register();
 ::Dog_obj::__register();
 ::__ASSET__font_5_obj::__register();
 ::__ASSET__font_04b_03___ttf_png_obj::__register();
@@ -586,6 +588,7 @@ hx::RegisterResources( hx::GetResources() );
 ::__ASSET__font_04b_03___ttf_png_obj::__boot();
 ::__ASSET__font_5_obj::__boot();
 ::Dog_obj::__boot();
+::Dust_obj::__boot();
 ::GameOverText_obj::__boot();
 ::Lambda_obj::__boot();
 ::List_obj::__boot();

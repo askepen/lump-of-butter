@@ -46,6 +46,9 @@ class HXCPP_CLASS_ATTRIBUTES  Pauser_obj : public ::com::haxepunk::Entity_obj{
 		virtual Void un_pause( );
 		Dynamic un_pause_dyn();
 
+		virtual Void pauseMenu( );
+		Dynamic pauseMenu_dyn();
+
 };
 
 

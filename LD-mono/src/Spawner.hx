@@ -229,11 +229,11 @@ class Spawner extends Entity
 			
 			world.add(b);
 			
-			world.add(new Player(2,false, b,900,100,p1Joy,p1JoyNum));
-			world.add(new Player(2,true,  b,100,100,p1Joy,p1JoyNum));
+			world.add(new Player(2,false, b,900,100,p2Joy,p1JoyNum));
+			world.add(new Player(2,true,  b,100,100,p2Joy,p1JoyNum));
 			
-			world.add(new Player(1,false, b,900,700,p2Joy,p2JoyNum));
-			world.add(new Player(1,true,  b,100,700,p2Joy,p2JoyNum));
+			world.add(new Player(1,false, b,900,700,p1Joy,p2JoyNum));
+			world.add(new Player(1,true,  b,100,700,p1Joy,p2JoyNum));
 			
 			if(world.getInstance("ball") == null) world.add(ball);
 			if(world.getInstance("splash") != null) world.remove(world.getInstance("splash"));

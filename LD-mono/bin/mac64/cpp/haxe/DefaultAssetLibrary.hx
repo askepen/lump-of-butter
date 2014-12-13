@@ -78,6 +78,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/Bar.png", AssetType.IMAGE);
 		path.set ("graphics/Dog-sheet.png", "graphics/Dog-sheet.png");
 		type.set ("graphics/Dog-sheet.png", AssetType.IMAGE);
+		path.set ("graphics/dust.png", "graphics/dust.png");
+		type.set ("graphics/dust.png", AssetType.IMAGE);
 		path.set ("graphics/FlashTip.png", "graphics/FlashTip.png");
 		type.set ("graphics/FlashTip.png", AssetType.IMAGE);
 		path.set ("graphics/game-gfx-2.png", "graphics/game-gfx-2.png");
@@ -192,6 +194,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "graphics/Dog-sheet.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/dust.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "graphics/FlashTip.png";
@@ -318,6 +323,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		Font.registerFont (__ASSET__font_5);
 		
 		
@@ -357,6 +363,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("font/04B_03__.ttf.png", __ASSET__font_04b_03___ttf_png);
 		type.set ("font/04B_03__.ttf.png", AssetType.IMAGE);
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1049,6 +1056,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 #elseif html5
 
 
@@ -1061,6 +1069,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__font_04b_03___ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "font/04B_03__.ttf"; } #end }
+
 
 
 

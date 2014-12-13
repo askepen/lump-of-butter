@@ -3,8 +3,14 @@
 #ifndef INCLUDED_IMap
 #include <IMap.h>
 #endif
+#ifndef INCLUDED_MainScene
+#include <MainScene.h>
+#endif
 #ifndef INCLUDED_Pauser
 #include <Pauser.h>
+#endif
+#ifndef INCLUDED_com_haxepunk_Engine
+#include <com/haxepunk/Engine.h>
 #endif
 #ifndef INCLUDED_com_haxepunk_Entity
 #include <com/haxepunk/Entity.h>
@@ -57,8 +63,26 @@
 #ifndef INCLUDED_openfl__v2_display_BitmapData
 #include <openfl/_v2/display/BitmapData.h>
 #endif
+#ifndef INCLUDED_openfl__v2_display_DisplayObject
+#include <openfl/_v2/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_DisplayObjectContainer
+#include <openfl/_v2/display/DisplayObjectContainer.h>
+#endif
 #ifndef INCLUDED_openfl__v2_display_IBitmapDrawable
 #include <openfl/_v2/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_InteractiveObject
+#include <openfl/_v2/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_Sprite
+#include <openfl/_v2/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__v2_events_EventDispatcher
+#include <openfl/_v2/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__v2_events_IEventDispatcher
+#include <openfl/_v2/events/IEventDispatcher.h>
 #endif
 #ifndef INCLUDED_openfl__v2_geom_Rectangle
 #include <openfl/_v2/geom/Rectangle.h>
@@ -237,7 +261,12 @@ Void Pauser_obj::update( ){
 				}
 			}
 		}
-		HX_STACK_LINE(41)
+		HX_STACK_LINE(40)
+		if ((this->paused)){
+			HX_STACK_LINE(40)
+			this->pauseMenu();
+		}
+		HX_STACK_LINE(43)
 		this->super::update();
 	}
 return null();
@@ -246,28 +275,28 @@ return null();
 
 Void Pauser_obj::pause( ){
 {
-		HX_STACK_FRAME("Pauser","pause",0x3bcc31e4,"Pauser.pause","Pauser.hx",45,0x06ddff62)
+		HX_STACK_FRAME("Pauser","pause",0x3bcc31e4,"Pauser.pause","Pauser.hx",47,0x06ddff62)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(46)
-		this->paused = true;
 		HX_STACK_LINE(48)
-		this->sprite->set_alpha((int)1);
+		this->paused = true;
 		HX_STACK_LINE(50)
+		this->sprite->set_alpha((int)1);
+		HX_STACK_LINE(52)
 		{
-			HX_STACK_LINE(50)
+			HX_STACK_LINE(52)
 			int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
-			HX_STACK_LINE(50)
+			HX_STACK_LINE(52)
 			int _g = this->allEnts->length;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(50)
+			HX_STACK_LINE(52)
 			while((true)){
-				HX_STACK_LINE(50)
+				HX_STACK_LINE(52)
 				if ((!(((_g1 < _g))))){
-					HX_STACK_LINE(50)
+					HX_STACK_LINE(52)
 					break;
 				}
-				HX_STACK_LINE(50)
-				int i = (_g1)++;		HX_STACK_VAR(i,"i");
 				HX_STACK_LINE(52)
+				int i = (_g1)++;		HX_STACK_VAR(i,"i");
+				HX_STACK_LINE(54)
 				this->allEnts->__get(i).StaticCast< ::com::haxepunk::Entity >()->active = false;
 			}
 		}
@@ -280,28 +309,28 @@ HX_DEFINE_DYNAMIC_FUNC0(Pauser_obj,pause,(void))
 
 Void Pauser_obj::un_pause( ){
 {
-		HX_STACK_FRAME("Pauser","un_pause",0xd816fb22,"Pauser.un_pause","Pauser.hx",57,0x06ddff62)
+		HX_STACK_FRAME("Pauser","un_pause",0xd816fb22,"Pauser.un_pause","Pauser.hx",59,0x06ddff62)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(58)
-		this->paused = false;
 		HX_STACK_LINE(60)
-		this->sprite->set_alpha((int)0);
+		this->paused = false;
 		HX_STACK_LINE(62)
+		this->sprite->set_alpha((int)0);
+		HX_STACK_LINE(64)
 		{
-			HX_STACK_LINE(62)
+			HX_STACK_LINE(64)
 			int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
-			HX_STACK_LINE(62)
+			HX_STACK_LINE(64)
 			int _g = this->allEnts->length;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(62)
+			HX_STACK_LINE(64)
 			while((true)){
-				HX_STACK_LINE(62)
+				HX_STACK_LINE(64)
 				if ((!(((_g1 < _g))))){
-					HX_STACK_LINE(62)
+					HX_STACK_LINE(64)
 					break;
 				}
-				HX_STACK_LINE(62)
+				HX_STACK_LINE(64)
 				int i = (_g1)++;		HX_STACK_VAR(i,"i");
-				HX_STACK_LINE(62)
+				HX_STACK_LINE(64)
 				this->allEnts->__get(i).StaticCast< ::com::haxepunk::Entity >()->active = true;
 			}
 		}
@@ -311,6 +340,50 @@ return null();
 
 
 HX_DEFINE_DYNAMIC_FUNC0(Pauser_obj,un_pause,(void))
+
+Void Pauser_obj::pauseMenu( ){
+{
+		HX_STACK_FRAME("Pauser","pauseMenu",0x2ec765a3,"Pauser.pauseMenu","Pauser.hx",68,0x06ddff62)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(69)
+		{
+			HX_STACK_LINE(69)
+			int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
+			HX_STACK_LINE(69)
+			int _g = ::com::haxepunk::utils::Input_obj::get_joysticks();		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(69)
+			while((true)){
+				HX_STACK_LINE(69)
+				if ((!(((_g1 < _g))))){
+					HX_STACK_LINE(69)
+					break;
+				}
+				HX_STACK_LINE(69)
+				int i = (_g1)++;		HX_STACK_VAR(i,"i");
+				HX_STACK_LINE(71)
+				if (((  ((!(::com::haxepunk::utils::Input_obj::joystick(i)->pressed((int)0)))) ? bool(::com::haxepunk::utils::Input_obj::joystick(i)->pressed((int)9)) : bool(true) ))){
+					HX_STACK_LINE(73)
+					::com::haxepunk::Scene value = ::MainScene_obj::__new();		HX_STACK_VAR(value,"value");
+					HX_STACK_LINE(73)
+					::com::haxepunk::HXP_obj::engine->set_scene(value);
+				}
+			}
+		}
+		HX_STACK_LINE(77)
+		::com::haxepunk::ds::Either _g = ::com::haxepunk::utils::_Input::InputType_Impl__obj::fromRight((int)82);		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(77)
+		if ((::com::haxepunk::utils::Input_obj::pressed(_g))){
+			HX_STACK_LINE(77)
+			::com::haxepunk::Scene value = ::MainScene_obj::__new();		HX_STACK_VAR(value,"value");
+			HX_STACK_LINE(77)
+			::com::haxepunk::HXP_obj::engine->set_scene(value);
+		}
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(Pauser_obj,pauseMenu,(void))
 
 
 Pauser_obj::Pauser_obj()
@@ -351,6 +424,9 @@ Dynamic Pauser_obj::__Field(const ::String &inName,bool inCallProp)
 		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"un_pause") ) { return un_pause_dyn(); }
+		break;
+	case 9:
+		if (HX_FIELD_EQ(inName,"pauseMenu") ) { return pauseMenu_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -395,6 +471,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("update"),
 	HX_CSTRING("pause"),
 	HX_CSTRING("un_pause"),
+	HX_CSTRING("pauseMenu"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

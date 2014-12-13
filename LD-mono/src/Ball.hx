@@ -104,6 +104,7 @@ class Ball extends Entity
 		beingHeld = false;
 		drawTrail = true;
 		screenshakeInit(2,15,7);
+		world.add( new Dust(x,y));
 	}
 	
 	function updateGraphic():Void
