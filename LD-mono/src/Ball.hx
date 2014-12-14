@@ -98,7 +98,7 @@ class Ball extends Entity
 			
 			sprite.scale = 0;
 		}
-		else if ((p != null ) && (x < p.boundX || x > HXP.width - p.boundX || (p.ballAttached ? (y+100 < p.boundY) : (y < p.boundY-20 )) || y > HXP.height - p.boundY ))
+		else if ((p != null ) && (x < p.boundX - 10 || x > HXP.width + 10 - p.boundX || (p.ballAttached ? (y+100 < p.boundY) : (y < p.boundY-25 )) || y > HXP.height + 25 - p.boundY ))
 		{
 			no_more_butter = true;
 			

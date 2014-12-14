@@ -45,13 +45,17 @@ class Pauser extends Entity
 	
 	public function pause():Void
 	{
-		paused = true;
-		
-		sprite.alpha = 1;
-		
-		for (i in 0...allEnts.length) 
+		if(world.getInstance("gameover") != null) HXP.world = new MainScene();	
+		else
 		{
-			allEnts[i].active = false;
+			paused = true;
+			
+			sprite.alpha = 1;
+			
+			for (i in 0...allEnts.length) 
+			{
+				allEnts[i].active = false;
+			}
 		}
 	}
 	
