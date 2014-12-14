@@ -30,6 +30,8 @@ class Player extends Entity
 	var joy:Joystick;
 	var joyNum:Int;
 	var joyInput:Bool;
+	var joyType:String;
+	var joyMap:Array<Int>;
 
 	var splat:Sfx;
 	var huuang:Sfx;
@@ -43,7 +45,7 @@ class Player extends Entity
 	public var focused:Bool = false;
 	public var score:Int = 0;
 	
-	public override function new(Team:Int, focus:Bool, bar:Bar, _x:Float, _y:Float, jsInput:Bool = false, jsNum:Int = 0)
+	public override function new(Team:Int, focus:Bool, bar:Bar, _x:Float, _y:Float, jsInput:Bool = false, jsNum:Int = 0, jsType:String = "")
 	{
 		//Various
 		super(_x, _y);
@@ -118,10 +120,49 @@ class Player extends Entity
 		
 		joyNum = jsNum;
 		joyInput = jsInput;	
+		joyType = jsType;
 		
 		if(joyInput) 
 		{
 			joy = Input.joystick(joyNum);
+		}
+		
+		joyMap = [];
+		
+		switch(joyType)
+		{
+			case "ps3":
+				joyMap = [
+						  PS3_GAMEPAD.X_BUTTON,				//	0	X 
+						  PS3_GAMEPAD.L1_BUTTON,			//	1	L1
+						  PS3_GAMEPAD.R1_BUTTON,			//	2	R1
+						  PS3_GAMEPAD.START_BUTTON, 		//	3	Start
+						  PS3_GAMEPAD.SELECT_BUTTON,		//	4	Selecet
+						  PS3_GAMEPAD.TRIANGLE_BUTTON		//	5	Triangle
+						  ];
+			  	
+						  
+			case "xbox":
+				joyMap = [
+						  XBOX_GAMEPAD.A_BUTTON,
+						  XBOX_GAMEPAD.LB_BUTTON,
+						  XBOX_GAMEPAD.RB_BUTTON,
+						  XBOX_GAMEPAD.START_BUTTON,
+						  XBOX_GAMEPAD.BACK_BUTTON,
+						  XBOX_GAMEPAD.Y_BUTTON
+						  ];
+						 
+						  
+			default:
+				joyMap = [
+						  OUYA_GAMEPAD.A_BUTTON,
+						  OUYA_GAMEPAD.LB_BUTTON,
+						  OUYA_GAMEPAD.RB_BUTTON,
+						  OUYA_GAMEPAD.START_BUTTON,
+						  OUYA_GAMEPAD.BACK_BUTTON,
+						  OUYA_GAMEPAD.Y_BUTTON
+						  ];
+						  
 		}
 		
 		
@@ -335,19 +376,19 @@ class Player extends Entity
 			targetAngle = 270;
 		}
 		
-		if(Input.joystick(joyNum).check(PS3_GAMEPAD.X_BUTTON) || Input.joystick(joyNum).check(XBOX_GAMEPAD.A_BUTTON) )
+		if(Input.joystick(joyNum).check(joyMap[0]))
 		{
-			if(Input.joystick(joyNum).check(PS3_GAMEPAD.L1_BUTTON) || Input.joystick(joyNum).check(XBOX_GAMEPAD.LB_BUTTON))
+			if(Input.joystick(joyNum).check(joyMap[1]))
 				sprite.scaleX > 0 ? addAngle -= 5 : addAngle += 5;
 			
 			
-			if(Input.joystick(joyNum).check(PS3_GAMEPAD.R1_BUTTON) || Input.joystick(joyNum).check(XBOX_GAMEPAD.RB_BUTTON))
+			if(Input.joystick(joyNum).check(joyMap[2]))
 				sprite.scaleX > 0 ? addAngle += 5 : addAngle -= 5;
 			
 			throwCharge();
 		}
 		
-		if(Input.joystick(joyNum).released(PS3_GAMEPAD.X_BUTTON) || Input.joystick(joyNum).released(XBOX_GAMEPAD.A_BUTTON) )
+		if(Input.joystick(joyNum).released(joyMap[0]))
 		{
 			throwBall();
 			addAngle = 0;

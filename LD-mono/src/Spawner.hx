@@ -18,9 +18,11 @@ class Spawner extends Entity
 	
 	var p1Joy:Bool = false;
 	var p1JoyNum:Int = -1;
+	var p1JoyType:String = "";
 	
 	var p2Joy:Bool = false;
 	var p2JoyNum:Int = -1;
+	var p2JoyType:String = "";
 	
 	var img:Image  = new Image("graphics/Splash.png");
 	var modeImg:Image  = new Image("graphics/ModeSingleplayerP1.png");
@@ -61,6 +63,16 @@ class Spawner extends Entity
 //Initialize game if Enter or Start is pressed	
 		if (Input.pressed(Key.ENTER) || Input.joystick(p1JoyNum).pressed(PS3_GAMEPAD.START_BUTTON) || Input.joystick(p1JoyNum).pressed(XBOX_GAMEPAD.START_BUTTON) ) 
 		{
+			if(Input.joystick(i).pressed(PS3_GAMEPAD.START_BUTTON))
+				p2JoyType = "ps3";
+				
+			else if(Input.joystick(i).pressed(XBOX_GAMEPAD.START_BUTTON))
+				p2JoyType = "xbox";
+				
+			else p2JoyType = "ouya";
+			
+			HXP.console.log([p1JoyType])
+			
 			gameInit();
 		}
 		
@@ -177,6 +189,8 @@ class Spawner extends Entity
 						p2CtrlImg = new Image("graphics/P2_Joy_Ctrl.png");
 					}
 					
+					;
+					
 					updateModeState();
 					updateGraphiclist();
 				}
@@ -196,8 +210,8 @@ class Spawner extends Entity
 			
 			world.add(b);
 			
-			world.add(new Player(1,false, b,900,700,p1Joy,p1JoyNum));
-			world.add(new Player(1,true,  b,100,700,p1Joy,p1JoyNum));
+			world.add(new Player(1,false, b,900,700,p1Joy,p1JoyNum,p1JoyType));
+			world.add(new Player(1,true,  b,100,700,p1Joy,p1JoyNum,p1JoyType));
 			
 			if(world.getInstance("ball") == null) world.add(ball);
 			if(world.getInstance("splash") != null) world.remove(world.getInstance("splash"));
@@ -213,8 +227,8 @@ class Spawner extends Entity
 			
 			world.add(b);
 			
-			world.add(new Player(2,false, b,900,700,p2Joy,p2JoyNum));
-			world.add(new Player(2,true,  b,100,700,p2Joy,p2JoyNum));
+			world.add(new Player(2,false, b,900,700,p2Joy,p2JoyNum,p2JoyType));
+			world.add(new Player(2,true,  b,100,700,p2Joy,p2JoyNum,p2JoyType));
 			
 			if(world.getInstance("ball") == null) world.add(ball);
 			if(world.getInstance("splash") != null) world.remove(world.getInstance("splash"));
@@ -229,11 +243,11 @@ class Spawner extends Entity
 			
 			world.add(b);
 			
-			world.add(new Player(2,false, b,900,100,p2Joy,p2JoyNum));
-			world.add(new Player(2,true,  b,100,100,p2Joy,p2JoyNum));
+			world.add(new Player(2,false, b,900,100,p2Joy,p2JoyNum,p2JoyType));
+			world.add(new Player(2,true,  b,100,100,p2Joy,p2JoyNum,p2JoyType));
 			
-			world.add(new Player(1,false, b,900,700,p1Joy,p1JoyNum));
-			world.add(new Player(1,true,  b,100,700,p1Joy,p1JoyNum));
+			world.add(new Player(1,false, b,900,700,p1Joy,p1JoyNum,p1JoyType));
+			world.add(new Player(1,true,  b,100,700,p1Joy,p1JoyNum,p1JoyType));
 			
 			if(world.getInstance("ball") == null) world.add(ball);
 			if(world.getInstance("splash") != null) world.remove(world.getInstance("splash"));
