@@ -44,7 +44,8 @@ class Player extends Entity
 	public var b:Ball;
 	public var focused:Bool = false;
 	public var score:Int = 0;
-	
+
+//		-------INITIALIZER-------	
 	public override function new(Team:Int, focus:Bool, bar:Bar, _x:Float, _y:Float, jsInput:Bool = false, jsNum:Int = 0, jsType:String = "")
 	{
 		//Various
@@ -164,8 +165,6 @@ class Player extends Entity
 						  ];
 						  
 		}
-		
-		
 	}
 	
 	override function added():Void
@@ -177,6 +176,7 @@ class Player extends Entity
 		world.add(target);
 	}
 	
+//		-------UPDATE-------
 	override function update():Void
 	{
 		if(focused) joyInput ? handleJsInput() : handleInput();
@@ -190,6 +190,7 @@ class Player extends Entity
 		shadow.set_layer(layer+1);
 		super.update();
 	}
+	
 	
 	function checkBall():Void
 	{
@@ -227,7 +228,7 @@ class Player extends Entity
 		focusThis ? indicator.alpha = 0 : indicator.alpha = 1;
 	}
 	
-	function ballUpdate():Void
+	public function ballUpdate():Void
 	{
 		if(ballAttached)
 		{

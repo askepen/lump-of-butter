@@ -13,7 +13,6 @@ class Ball extends Entity
 	var trail:Graphiclist;
 	
 	var state:String = "still";
-	var p:Player;
 	var flyspeed:Float = 16.0;
 	var tx:Float;
 	var ty:Float;
@@ -25,6 +24,7 @@ class Ball extends Entity
 	var shakeAmountY:Float;
 	var screenshakeOn:Bool;
 	
+	public var p:Player;
 	public var inAir:Bool = false;
 	public var shadow:Shadow;
 	public var lastOwner:Player;
@@ -83,7 +83,15 @@ class Ball extends Entity
 		if(sprite.scale < 0.2)  
 		{
 			if(world.getInstance("gameover") == null) world.add(new GameOverText(0,getWinner()));
-			x = 2000;
+			
+			if(p != null && p.ballAttached)
+			{
+				p.ballAttached = false;
+				x = 2000;
+				p.ballUpdate();
+			}
+			else x = 2000;
+			
 			sprite.scale = 0;
 		}
 		else if ((p != null ) && (x < p.boundX || x > HXP.width - p.boundX || (p.ballAttached ? (y+100 < p.boundY) : (y < p.boundY-20 )) || y > HXP.height - p.boundY ))
@@ -91,7 +99,15 @@ class Ball extends Entity
 			if(world.getInstance("gameover") == null)
 			{
 				world.add(new GameOverText(1,getWinner(true)));
-				x = 2000;
+				
+				if(p != null && p.ballAttached)
+				{
+					p.ballAttached = false;
+					x = 2000;
+					p.ballUpdate();
+				}
+				else x = 2000;
+				
 			}
 		}
 	}

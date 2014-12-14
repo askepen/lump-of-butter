@@ -99,6 +99,14 @@ class Dog extends Entity
 				ball.visible = false;
 				ball.shadow.visible = false;
 				
+				if(ball.p != null && ball.p.ballAttached)
+				{
+					ball.p.ballAttached = false;
+					ball.x = 2000;
+					ball.p.ballUpdate();
+				}
+				else ball.x = 2000;
+				
 				if(world.getInstance("gameover") != null) return;
 				else world.add(new GameOverText(2,0));
 			}
@@ -125,6 +133,14 @@ class Dog extends Entity
 				ball.visible = false;
 				ball.shadow.visible = false;
 				
+				if(ball.p != null && ball.p.ballAttached)
+				{
+					ball.p.ballAttached = false;
+					ball.x = 2000;
+					ball.p.ballUpdate();
+				}
+				else ball.x = 2000;
+				
 				if(world.getInstance("gameover") != null) return;
 				else world.add(new GameOverText(2,0));
 			}
@@ -135,7 +151,11 @@ class Dog extends Entity
 		{
 			reachedGoal = true;
 		}
-		else
+		else if (collide("ball",x,y) != null)
+		{
+			reachedGoal = true;
+		}
+		else 
 		{
 			reachedGoal = false;
 		}
