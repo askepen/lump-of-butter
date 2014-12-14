@@ -77,8 +77,8 @@ class Ball extends Entity
 	
 	function checkEndCondition():Void
 	{
-		sprite.scale -= 0.0002;
-		shadow.sprite.scale -= 0.0002;
+		sprite.scale -= 0.00035;
+		shadow.sprite.scale = sprite.scale;
 		
 		if(sprite.scale < 0.2)  
 		{

@@ -15,6 +15,7 @@ class Dust extends Entity
 		sprite.add("anim",[0,1,2,3,4,5,6],40,false);
 		sprite.play("anim");
 		sprite.centerOrigin();
+		sprite.alpha = 0.7;
 		
 		graphic = sprite;
 	}

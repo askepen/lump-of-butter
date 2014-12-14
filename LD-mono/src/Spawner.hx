@@ -63,16 +63,6 @@ class Spawner extends Entity
 //Initialize game if Enter or Start is pressed	
 		if (Input.pressed(Key.ENTER) || Input.joystick(p1JoyNum).pressed(PS3_GAMEPAD.START_BUTTON) || Input.joystick(p1JoyNum).pressed(XBOX_GAMEPAD.START_BUTTON) ) 
 		{
-			if(Input.joystick(i).pressed(PS3_GAMEPAD.START_BUTTON))
-				p2JoyType = "ps3";
-				
-			else if(Input.joystick(i).pressed(XBOX_GAMEPAD.START_BUTTON))
-				p2JoyType = "xbox";
-				
-			else p2JoyType = "ouya";
-			
-			HXP.console.log([p1JoyType])
-			
 			gameInit();
 		}
 		
@@ -177,6 +167,14 @@ class Spawner extends Entity
 						p1JoyNum = i;
 						p1 = true;
 						
+						if(Input.joystick(i).pressed(PS3_GAMEPAD.X_BUTTON))
+							p1JoyType = "ps3";
+							
+						else if(Input.joystick(i).pressed(XBOX_GAMEPAD.A_BUTTON))
+							p1JoyType = "xbox";
+							
+						else p1JoyType = "ouya";
+						
 						p1CtrlImg = new Image("graphics/P1_Joy_Ctrl.png");
 					}
 					else if (!p2Joy && i != p1JoyNum)
@@ -186,10 +184,18 @@ class Spawner extends Entity
 						p2JoyNum = i; 
 						p2 = true;
 						
+						if(Input.joystick(i).pressed(PS3_GAMEPAD.X_BUTTON))
+							p2JoyType = "ps3";
+							
+						else if(Input.joystick(i).pressed(XBOX_GAMEPAD.A_BUTTON))
+							p2JoyType = "xbox";
+							
+						else p2JoyType = "ouya";
+						
 						p2CtrlImg = new Image("graphics/P2_Joy_Ctrl.png");
 					}
 					
-					;
+					HXP.console.log([p1JoyType]);
 					
 					updateModeState();
 					updateGraphiclist();
