@@ -32,16 +32,24 @@ class Dog extends Entity
 	{
 		chase();
 		
+		
 		super.added();
 	}
 	
 	override public function update():Void
 	{	
-		if (ball != null) chase();
+		if (ball != null && !ball.no_more_butter) chase();
 		
 		checkBall();
 		checkPlayer();
 		layer = Math.round(-y);
+		
+		if( ball != null && ball.no_more_butter)
+			reachedGoal = true;
+			
+		if ( reachedGoal ) sprite.play("idle");
+		
+		
 		super.update();
 	}
 	
@@ -82,7 +90,6 @@ class Dog extends Entity
 			y += _y;
 			
 		}
-		else sprite.play("idle");
 		
 		_x < 0 && _x != 0 ? sprite.scaleX = -1 : sprite.scaleX = 1;
 		
@@ -93,7 +100,6 @@ class Dog extends Entity
 		
 		if(ball != null && world.getInstance("gameover") == null && !ball.beingHeld)
 		{
-			
 			if(collideWith(ball,x,y) != null)
 			{
 				ball.visible = false;
@@ -103,21 +109,17 @@ class Dog extends Entity
 				{
 					ball.p.ballAttached = false;
 					ball.x = 2000;
+					
 					ball.p.ballUpdate();
 				}
 				else ball.x = 2000;
 				
+				ball.no_more_butter = true;
+				reachedGoal = true;
+				
 				if(world.getInstance("gameover") != null) return;
 				else world.add(new GameOverText(2,0));
 			}
-		}
-		else if(collideWith(ball,x,y) != null)
-		{
-			reachedGoal = true;
-		}
-		else
-		{
-			reachedGoal = false;
 		}
 	}
 	
@@ -127,7 +129,6 @@ class Dog extends Entity
 		
 		if(p != null && world.getInstance("gameover") == null && ball.beingHeld)
 		{
-			
 			if(collideWith(p,x,y) != null)
 			{
 				ball.visible = false;
@@ -137,27 +138,17 @@ class Dog extends Entity
 				{
 					ball.p.ballAttached = false;
 					ball.x = 2000;
+					
 					ball.p.ballUpdate();
 				}
 				else ball.x = 2000;
 				
+				ball.no_more_butter = true;
+				reachedGoal = true;
+				
 				if(world.getInstance("gameover") != null) return;
 				else world.add(new GameOverText(2,0));
 			}
-		}
-		
-		
-		if(p != null && collideWith(p,x,y) != null && ball.beingHeld)
-		{
-			reachedGoal = true;
-		}
-		else if (collide("ball",x,y) != null)
-		{
-			reachedGoal = true;
-		}
-		else 
-		{
-			reachedGoal = false;
 		}
 	}
 }

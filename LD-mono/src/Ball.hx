@@ -29,6 +29,7 @@ class Ball extends Entity
 	public var shadow:Shadow;
 	public var lastOwner:Player;
 	public var beingHeld:Bool = false;
+	public var no_more_butter:Bool = false;
 	
 	public override function new()
 	{
@@ -88,14 +89,19 @@ class Ball extends Entity
 			{
 				p.ballAttached = false;
 				x = 2000;
+				
 				p.ballUpdate();
 			}
 			else x = 2000;
+			
+			no_more_butter = true;
 			
 			sprite.scale = 0;
 		}
 		else if ((p != null ) && (x < p.boundX || x > HXP.width - p.boundX || (p.ballAttached ? (y+100 < p.boundY) : (y < p.boundY-20 )) || y > HXP.height - p.boundY ))
 		{
+			no_more_butter = true;
+			
 			if(world.getInstance("gameover") == null)
 			{
 				world.add(new GameOverText(1,getWinner(true)));
@@ -104,10 +110,10 @@ class Ball extends Entity
 				{
 					p.ballAttached = false;
 					x = 2000;
+					
 					p.ballUpdate();
 				}
 				else x = 2000;
-				
 			}
 		}
 	}
