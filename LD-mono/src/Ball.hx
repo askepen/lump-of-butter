@@ -13,7 +13,6 @@ class Ball extends Entity
 	var trail:Graphiclist;
 	
 	var state:String = "still";
-	var flyspeed:Float = 16.0;
 	var tx:Float;
 	var ty:Float;
 	var drawTrail:Bool = false;
@@ -78,7 +77,8 @@ class Ball extends Entity
 	
 	function checkEndCondition():Void
 	{
-		sprite.scale -= 0.00035;
+		HXP.console.log([1000 / Settings.GAME_LENGTH]);
+		sprite.scale -= 1 / Settings.GAME_LENGTH;
 		shadow.sprite.scale = sprite.scale;
 		
 		if(sprite.scale < 0.2)  
@@ -145,8 +145,6 @@ class Ball extends Entity
 				state = "still";
 				layer = -Math.round(y);
 			}
-			
-			
 		}
 		
 		switch(state)
@@ -227,8 +225,8 @@ class Ball extends Entity
 	public function screenshakeInit(amountX:Float, amountY:Float, time:Int):Void
 	{
 		shakeTime = time;
-		shakeAmountX = amountX;
-		shakeAmountY = amountY;
+		shakeAmountX = amountX * Settings.SCREENSHAKE;
+		shakeAmountY = amountY * Settings.SCREENSHAKE;
 		screenshakeOn = true;
 	}
 	

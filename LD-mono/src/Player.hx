@@ -11,7 +11,7 @@ class Player extends Entity
 {
 	var sprite:Spritemap;
 	
-	var speed:Float = 12.0;
+	var speed:Float = Settings.PLAYER_SPEED;
 	var state:String = "still";
 	var throwTimer:Float = 0;
 	var throwTime:Int = 40;
@@ -23,7 +23,7 @@ class Player extends Entity
 	var thrownTime = 0;
 	var inputTeamName:String;
 	var ballHoldTimer:Int = 0;
-	var ballHoldTime:Int = 500;
+	var ballHoldTime:Int = Settings.PLAYER_HOLD_BUTTER_TIMER;
 	var timerBar:Bar;
 	var indiUp:Bool = false;
 	

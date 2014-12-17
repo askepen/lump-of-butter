@@ -8,7 +8,7 @@ class Dog extends Entity
 	public var ball:Ball;
 	var p:Player;
 	var target:Entity;
-	var speed:Float = 3.5;
+	var speed:Float = Settings.DOG_SPEED;
 	var reachedGoal:Bool = false;
 	
 	public override function new()
@@ -31,7 +31,6 @@ class Dog extends Entity
 	override public function added():Void
 	{
 		chase();
-		
 		
 		super.added();
 	}

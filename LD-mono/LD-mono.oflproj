@@ -115,5 +115,6 @@
     <Compile Include="assets\graphics\Splash.png" />
     <Compile Include="assets\graphics\Paused.png" />
     <Compile Include="src\Dust.hx" />
+    <Compile Include="src\Settings.hx" />
   </ItemGroup>
 </Project>

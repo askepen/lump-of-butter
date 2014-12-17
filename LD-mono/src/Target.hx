@@ -24,4 +24,11 @@ class Target extends Entity
 		y = newY;
 		layer = Math.round(-y);
 	}
+	
+	override public function update():Void
+	{
+		if(world.getInstance("gameover") != null) visible = false;
+		
+		super.update();
+	}
 }
